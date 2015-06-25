@@ -1,5 +1,6 @@
-# CS61B
 UCB CS61B Spring 2014
 
-Note: These solutions to CS61B - UCB are for personal use only, please do not use for plagriaism.
-Course readers, programming contests andlecture notes are publicly available online through CS61B website.
+Notes: 
+
+1. Solutions are for personal use only and uploaded as backup, please do not use for plagriaism.
+2. [Course readers](http://www-inst.eecs.berkeley.edu/~cs61b/fa14/), [programming contests](http://www.cs.berkeley.edu/~hilfingr/programming-contest/) and [lecture notes](https://www.cs.berkeley.edu/~jrs/61b/) are publicly available online through CS61B website.
