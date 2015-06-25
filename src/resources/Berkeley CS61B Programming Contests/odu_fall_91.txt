@@ -1,0 +1,396 @@
+             _ODU_ACM_Fall_Programming_Contest_1991_
+
+
+
+
+
+        The only problem with the following is that poker solitaire was a
+     programming assignment for the Spring 1990 semester. I doubt that
+     there will be any students from that class entering this early. -IBL
+
+
+                      Poker Solitaire Evaluator
+
+
+Input: standard input gets 25 cards, 5 cards per line. Each card consists
+     of two characters. The first represents the rank of the card: `A', `2',
+     `3', `4', `5', `6', `7', `8', `9', `X', `J', `Q', `K'. The second represen*
+ *ts the
+     suit of the card: `S', `H', `D', `C'.
+
+     The cards are dealt into a 5 X 5 square.  Each row and column is
+     evaluated to determine the highest hand type for which its 5 cards
+     qualify.  The hand types, from low to high, are Nothing, Pair, Two
+     Pair, Three of a kind, Straight, Flush, Full House, Four of a Kind,
+     Straight Flush.  A hand qualifies only once, and then only for its
+     highest type.  For example, a Four of a Kind does not count as two
+     pair or three of a kind.
+
+
+Output:  a list of 9 integers, telling how many hands of each handtype were
+     found.
+
+     Hand Types: from lowest to highest:
+
+
+        o Nothing- does not qualify as any of the following. Example: AC,
+          3H, QS, JD, 7D.
+
+        o One Pair- contains two cards of the same rank and does not
+          qualify for any of the following. Example: 2C, 3H, 4H, 2H, KD.
+
+        o Two Pair- contains two cards of one rank and two cards of an-
+          other and does not qualify for any of the following. Example: 2C,
+          3H, 4H, 2H, 4D.
+
+        o Three of a Kind- contains three cards of the same rank and does
+          not qualify for any of the following. Example: QS, KH, 2C, QD,
+          QC.
+
+        o Straight- the five cards of the hand may be sorted on rank so that
+          an unbroken sequence of 5 ranks is formed and the hand does not
+          qualify for any of the following. Aces count high or low. That is
+          AC, 2H, 4D, 3H, 5S forms a straight, as does JH, XD, QC, KD,
+          AS.
+
+        o Flush- the five cards are all of the same suit and the hand does
+          not qualify for any of the following. Example: 5D, AD, KD, 7D,
+          QD.
+
+        o Full House- the hand contains three cards of one rank and two
+          cards of another. Example: 3C, QS, QD, 3H, 3S.
+
+
+
+                                  1
+
+
+
+
+        o Four of a kind- the hand contains four cards of the same rank.
+          Example: AS, AD, AH, 7C, AC.
+
+        o Straight Flush- the hand meets the criteria for being both a
+          straight and a flush.
+
+
+Example:   The input file contains:
+
+
+
+     AS 2S 3S 4S 5S
+     AC 2H 3H 5C 4C
+     AH 2D KC KH 5D
+     AD 3D KD 9D 8D
+     XH 3C XC XS 8C
+
+
+
+     The five rows evaluate to Straight Flush, Straight, Pair, Flush, Three
+     of a Kind. The Five columns evaluate to Four of A Kind, Full House,
+     Two Pair, Nothing, and Two Pair.
+
+     The output would be:
+
+
+
+     1, 1, 2, 1, 1, 1, 1, 1, 1, 1
+
+
+
+     which represents the numbers of Nothings, Pairs, Two Pairs, Three of
+     a Kinds, ..., Straight Flushes.
+
+
+
+                                  2
+
+
+
+
+                        Project Scheduling
+
+
+   A project management technique called Pert involves breaking a large
+project into a number of tasks, estimating the time required to perform each
+task, and determining which taskscannot be started until others have been
+completed. The project is then summarized in chart form. For example, the
+chart
+
+
+
+            O      o  O      o             O      o
+
+                       B   _____- C  ________________- F
+                     OEAE      OEAE                 OEAE
+                       3          2  @                 2
+                                       @
+ O      o   O      o             O      o@@R
+
+             A  _____- D   ________________-E
+          OEAE       OEAE                 OEAE
+             5         2                     4
+
+indicates that tasks A, B, : :,:F each take 5, 3, 2, 2, 4, and 2 days respec-
+tively, that task E cannot complete until C and D are both completed, but
+that D can be performed in parallel with B and C.
+   Write a program that accepts a Pert chart and computes the amount
+of time required to complete a project.
+
+
+Input: Input will be from 1 to 27 lines, each corresponding to a different
+     task. Each line will contain:
+
+
+        o A single upper case letter serving as the name of a task. On the
+          final line of input, this will be blank and the rest of that line is
+          ignored.
+
+        o An integer indicating the number of days required to complete
+          that task.
+
+        o 0-26 additional uppercase letters, each indicating another task
+          that must complete before this one can begin.
+
+
+Output:  A single integer indicating the amount of time that will pass before
+     all tasks can complete.
+
+
+Example:   The chart shown above corresponds to the input:
+
+
+     A 5
+     B 3 A
+     D 2 A
+     C 2 B
+     F 2 CE
+     E 4 DC
+
+
+
+                                  3
+
+
+
+
+The output would be
+
+
+ 16
+
+
+
+                             4
+
+
+
+
+                        Intersecting Circles
+
+
+   The equation of a circle with radius r and center (xc; yc) is
+
+
+                     (x - xc)2 + (y - yc)2 = r2:
+
+
+   Write a program that compares two circles to see if they intersect and,
+if they do, computes one of the points of intersection. (There can be 1, 2,
+or and infinite number of such points).
+
+
+Input: The input to this program will consist of two lines. Each line will
+     contain 3 real numbers constituting the xc; yc; r parameters for one
+     circle.
+
+
+Output:  The output should be the words "NO INTERSECTION" if the
+     circles do not intersect. If they do intersect, the output should be two
+     real numbers giving the X and Y coordinates, respectively, of any one
+     point of intersection, computed to within 0:001.
+
+
+Example 1:   On input
+
+
+     0.0 0.0 1.0
+     3.0 0.0 1.0
+
+
+     the output would be
+
+
+     NO INTERSECTION
+
+
+Example 2:   On input
+
+
+     0.0 0.0 1.0
+     0.0 0.0 2.0
+
+
+     the output would be
+
+
+     NO INTERSECTION
+
+
+Example 3:   On input
+
+
+     0.0 0.0 1.0
+     1.0 0.0 1.0
+
+
+     the output would be
+
+
+     0.707 0.707
+
+
+     or
+
+
+     0.707 -0.707
+
+
+
+                                  5
+
+
+
+
+                             Anagrams
+
+
+   An anagram is a word or phrase formed by rearranging the letters of
+another word or phrase.  For example, "carthorse" is an anagram of "or-
+chestra".  Blanks within a phrase are ignores in forming anagrams.  Thus,
+"orchestra" and "horse cart" are also anagrams.
+   Write a program that reads a list of phrases and prints all pairs of ana-
+grams occurring in the list.
+
+
+Input: Input will consist of from 1 to 100 lines.  A completely empty or
+     blank line signals the end of input. Each line constitutes one phrase.
+
+
+Output:  Some number of lines (including possibly 0 if there are no ana-
+     grams in the list), each line containing two anagrammatic phrases
+     separated by ' = '.
+
+     (Each anagram pair should be printed exactly once, but the order of
+     the two phrases within a printed pair is irrelevant.)
+
+
+Example:   For the input
+
+
+     carthorse
+     horse
+     horse cart
+     i do not know u
+     ok i now donut
+     orchestra
+
+
+     the output could be
+
+
+     carthorse = orchestra
+     carthorse = horse cart
+     horse cart = orchestra
+     i do not know u = ok i now donut
+
+
+
+                                  6
+
+
+
+
+                          Periodic Strings
+
+
+   A character string is said to have period k if it can be formed by concate-
+nating one or more repetitions of another string of length k. For example,
+the string "abcabcabcabc" has period 3, since it is formed by 4 repetitions
+of the string "abc". It also has periods 6 (two repetitions of "abcabc") and
+12 (one repetition of "abcabcabcabc").
+   Write a program to read a character string and determine its smallest
+period.
+
+
+Input: A single character string of up to 80 non-blank characters.
+
+
+Output:  An integer denoting the smallest period of the input string.
+
+
+Example:   Given the input
+
+
+     HoHoHo
+
+
+     the output should be
+
+
+     2
+
+
+
+                                  7
+
+
+
+
+                          Robotic Stacker
+
+
+   A certain warehouse has ordered a robotic unit that can pick up, move
+and place various size boxes. It was ordered to provide a capability of using
+the warehouse floor space to the maximum extent by stacking boxes as high
+as possible.  The first task is to stack simple boxes in a bin that is 1 foot
+wide by 6 feet long and is 20 feet high. The boxes come into the warehouse
+on a conveyor belt one at a time. The task is for the robot to pick up the
+next box, move it from the conveyor area, and place it in the bin. The boxes
+on the conveyor are packaged groups of boxes that are a cube of 1 foot to a
+side. They are grouped in four sizes: one packaged box, two packaged boxes,
+three packaged boxes in a row, and four packaged boxes in a row. As with
+all new automated inovations, management wants to witness a simulated
+stacking exercise before committing the robot to full autonomous operation.
+   Write a complete Pascal program that accepts as input a list of boxes
+by size (number in the packaged group). This list will be in a file simul.in
+that looks like this:
+
+
+     4234443131..........
+
+
+   This means that the first package to be stacked has 4 boxes, the second
+has 2 boxes, the third has 3, the fourth has 4 boxes, the fifth has 4 boxes
+etc. To please management, your program must provide the stacking order
+in a file stack.out in the following columnar form:
+    package #   boxes in package  location
+where "package #" is a sequence of 1 through however many packages that
+the robot will stack, "boxes in package" identifies how many boxs were in
+each of the packages, and the "location" is identified by a pair of integer
+coordinates that relate to the 120 possible box locations.  The first 4 box
+package could occupy positions 1,1 1,2 1,3 1,4 if laid flat on the bin floor or
+perhaps 1,3 2,3 3,3 4,3 if placed vertically in the bin in the third column.
+Your program must accept the input file and stack as many packages as it
+can, and identify when the last package is stacked.
+   Packages must be stacked intact.... cannot be split apart into component
+boxes
+   Assume that all packages stacked horizontally are fully supported through-|
+out their length wherever they stack on top of an existing box. All packages
+must rest on top of an existing package or on the floor.
+
+
+
+                                  8
+
+.

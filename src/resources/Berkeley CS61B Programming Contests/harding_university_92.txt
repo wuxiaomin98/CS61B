@@ -1,0 +1,609 @@
+The following problem set was created by members of the ACM
+student programming team at Harding University for use in a local
+student programming contest.  Below is a list of the
+participating memebers of the programming team:
+ 
+David Anderson
+Brad Choate
+Tyler Cutshall
+Joel DeYoung
+Chris Robinson
+Alcides Viquez
+ 
+Feel free to use these problems in your contest or programming
+team practice.  For problem clarification or sample test data,
+send e-mail to deyoung@harding.edu.
+ 
+Special thanks to Michael Clore for his help in making this
+problem set accessible on the internet.
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #1
+                       Encoder and Decoder
+ 
+                      Source File: CODE.ext
+              Input/Output Files: CODE.IN,CODE.OUT
+ 
+Being in charge of the computer department of the Agency of
+International Espionage, you are asked to write a program that
+will allow a spy to encode and decode their messages.
+ 
+You can assume a spy's message is at most 80 characters long, and
+it includes all the upper and lowercase letters of the alphabet
+plus the space, and any of the following characters:
+ 
+,  .  :  ;  ?  !
+ 
+Your program should ask the user if they want to encode or decode
+a message.  If they choose to encode, the messages to be encoded
+are found in the file CODE.IN, one message per line.  The encoded
+messages should be stored in the file CODE.OUT.  If the user
+chooses to decode, the messages to be decoded are in the file
+CODE.OUT while the decoded messages should be stored in the file
+CODE.IN.
+ 
+The algorithm that you should use to encode messages is to take
+the ASCII value of each character in the message, starting with
+the last character in the message and ending with the first
+character in the message.  You should then add on to the coded
+message this ASCII value written in reverse order.  For example,
+if the ASCII value is 123, the encoded message should contain the
+string "321".  There should be no spaces separating the numbers
+in the encoded message.
+ 
+Sample File: CODE.IN
+abc
+Have a Nice Day !
+ 
+Sample run:
+ 
+Do you want to :
+    1: encode
+    2: decode
+Option : 1
+Program completed.
+ 
+Sample File CODE.OUT after the run:
+ 
+998979
+332312179862310199501872379231018117927
+ 
+ 
+If we ran the program again, selecting 2 to decode, the program
+should read the CODE.OUT file, and output the original messages
+in the CODE.IN file.
+ 
+The following is an ASCII table of the valid characters in a
+message:
+ 
+     "A"  65   "a"  97   " "  32
+     "B"  66   "b"  98   "!"  33
+      .         .        ","  44
+      .         .        "."  46
+      .         .        ":"  58
+     "Z"  90   "z"  122  ";"  59
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #2
+                         Marvelous Mazes
+ 
+                      Source File: MAZE.ext
+                       Input File: MAZE.IN
+                      Output File: MAZE.OUT
+ 
+Description
+ 
+Your mission, if you decide to accept it, is to create a maze
+drawing program.  A maze will consist of the alphabetic
+characters A-Z, * (asterisk), and spaces.  Your program will get
+the information for the mazes from the file MAZE.IN.  This file
+will contain lines of characters which your program must
+interpret to draw a maze.  Each row of the maze will be described
+by a series of numbers and characters, where the numbers before a
+character tell how many times that character will be used.  If
+there are multiple digits in a number before a character, then
+the number of times to repeat the character is the sum of the
+digits before that character.  The lowercase letter "b" will be
+used in the input file to represent spaces in the maze.  The
+descriptions for different rows in the maze will be separated by
+an exclamation point (!), or by an end of line.  Descriptions for
+different mazes will be separated by a blank line.  The input
+file will be terminated by an end of file.  There is no limit to
+the number of rows in a maze or the number of mazes in a file,
+though no row will contain more than 132 characters.  Happy
+mazing!
+ 
+ 
+Sample Input File:
+1T1b5T!1T2b1T1b2T!1T1b1T2b2T!1T3b1T1b1T!3T3b1T!1T3b1T1b1T!5T1*1T
+ 
+11X21b1X
+4X1b1X
+ 
+ 
+Sample Output File:
+T TTTTT
+T  T TT
+T T  TT
+T   T T
+TTT   T
+T   T T
+TTTTT*T
+ 
+XX   X
+XXXX X
+ 
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #3
+               Kibbles 'n' Bits 'n' Bits 'n' Bits
+ 
+                    Source File: KIBBLES.ext
+                     Input File: KIBBLES.IN
+                    Output File: KIBBLES.OUT
+ 
+A certain frazzled programmer is writing a program that receives
+two numbers at a time in hexadecimal form, performs an addition
+or subtraction on them, and outputs the result in decimal form.
+However, the binary representation of the hexadecimal numbers
+also needs to be output.
+ 
+This programmer would gladly write the routine to do this
+himself, but every time he tries to do anything in base 2, he
+breaks out in hives.  So if you write this little routine for
+him, he would be eternally grateful.
+ 
+The input for this program will come from a file.  The format for
+the file is as follows:
+ 
+N                  (This is the number of expressions to compute)
+HEX1 (+ or -) HEX2                         (The first expression)
+ .
+ .
+ .
+HEX1 (+ or -) HEX2                           (The nth expression)
+ 
+The output file should be in the following format:
+BINARY1 (+ or -) BINARY2 = DECIMAL                 (first result)
+ .
+ .
+ .
+BINARY1 (+ or -) BINARY2 = DECIMAL                   (nth result)
+ 
+Sample Input File:
+2
+A + 3
+AAA + BBB
+ 
+Sample Output File:
+0000000001010 + 0000000000011 = 13
+0101010101010 + 0101110111011 = 5733
+ 
+ 
+You may assume the following:
+-    The largest allowable hexadecimal number is FFF.
+-    When subtracting, the second number will always be smaller
+     than the first, i.e. no negative results.
+-    The spacing in the input file will be uniform throughout,
+     i.e. no spaces at the beginning of a line, and one space
+     between each element.
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #4
+                      Population Explosion
+ 
+                     Source File: POPUL.ext
+                      Input File: POPUL.IN
+                     Output File: POPUL.OUT
+ 
+You just received a call from NASA's chief scientist who is
+working on a habitable structure to be built on the moon.  He has
+designed various models of enclosed cities that people could live
+in, but he is unsure as to how these models will stand up to
+population growth.  Therefore, since your name has become
+synonymous with "He Can Program Anything From Neat, Flashy Space
+Games That Entangle You For Hours To Highly Sophisticated Super
+Spy Surveillance Satellite Image Enhancement Algorithms," he
+immediately called you with his problem.  Here is what he said:
+ 
+"I need a program which will read in a set of data points that
+represent the location of living quarters within the city.  I
+then want the program to simulate the creation, growth, and death
+of each living quarter per year based on the following rules:
+ 
+1.   Every living quarter with two or three neighboring quarters
+     survives the current year.
+2.   Each living quarter with four or more neighbors dies due to
+     over-population.  Each living quarter with one or less
+     neighbors dies from isolation.
+3.   Each empty location that is adjacent to exactly three
+     neighbors - no more, no fewer - will have someone build new
+     living quarters in that location for the next year.
+ 
+Note that each living quarter can have from zero to eight
+adjacent neighbors (i.e. north, south, east, west, north-west,
+north-east, south-west, and south-east) at any given time.
+ 
+Each city model will have a maximum of 20 possible living
+quarters in the north-south direction and 20 in the east-west
+direction.  The top left corner will be designated location 1,1
+(N-S position, E-W position) and the bottom right is therefore
+20,20.  I want the program to read the data file and then output
+the existing population map for each year.  Year 1 will
+correspond to the initial configuration.  Therefore, the first
+map in the file should be the inital configuration.  Mark empty
+locations with a space and living quarters with a capital letter
+O.  Please separate each year's output with a single line of 20
+asterisks.  Any questions?"
+ 
+"Yes, one," you replied, "What will the input file look like?
+ 
+"Let the first line of the file specify the number of years to
+run the simulation.  Then, following that will be the coordinates
+for the initial locations.  Oh, by the way, I need this to be
+completed within the next four hours.  Talk to you later.  Bye."
+ 
+Sample Input File:
+3
+5 4
+5 5
+5 6
+5 7
+ 
+Resulting Output File:
+ 
+ 
+ 
+ 
+   OOOO
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+********************
+ 
+ 
+ 
+    OO
+    OO
+    OO
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+********************
+ 
+ 
+ 
+    OO
+   O  O
+    OO
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+********************
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #5
+                              OOPS!
+ 
+                      Source File: OOPS.ext
+                       Input File: OOPS.IN
+                      Output File: OOPS.OUT
+ 
+You've been sitting in front of the terminal for three hours
+savagely coding the Assembler assignment that's due tomorrow.
+Your best friend, who finished the program last week and has been
+rubbing it in for just as long, saunters up to your terminal and
+offers, "Coke break, slow poke?"  You take the Coke he hands you
+and you lean your head back, savoring the refreshing feeling of
+the drink as it soothes your parched throat; too much coding
+always made your throat raw.  "Hey, can I look at how far you've
+gotten?" your friend asks.  "Sure," you reply, taking another
+long drink.  As you're enjoying your drink and thinking of what
+"The Real Thing" really is, you hear a whispered "oops" from the
+direction of your terminal.  "What?!" you demand.  Your friend
+replies, backing away, "I think I just deleted your source code."
+ 
+"Arrrgggghhh!" you spurt as your friend runs from the computer
+lab, mumbling prayers for divine protection.  You double check
+and sure enough all you have left of your precious Assembler
+assignment is the executable code from your last compile.  And
+you were so close to finishing!  Do you take a zero?  No, that
+last test was a killer.  Start over?  NOT!  Instead, your hands
+fumble for your Assembler textbook....  Ah, here we go: a
+description of the encoding scheme used by the computer's
+assembler.  It doesn't look too bad and you remember most of the
+hand disassembling you did in class (Thanks Dr. Baber)!  It's
+decided then, you'll just have to write a quick disassembler to
+convert the executable code back into your source code so that
+you can finish your assignment before Cheers comes on.  You open
+your textbook and begin reading:
+ 
+     Instruction Set
+ 
+HEX Code  Instruction Description
+  0         ADD [R,A,N],[R,A]
+  1         SUB [R,A,N],[R,A]
+  2         MUL [R,A,N],[R,A]
+  3         DIV [R,A,N],[R,A]
+  4         MOV [R,A,N],[R,A]
+  5         BREQ A
+  6         BRLE A
+  7         BRLS A
+  8         BRGE A
+  9         BRGR A
+  A         BRNE A
+  B         BR A
+  C         AND [R,A,N],[R,A,N],[R,A]
+  D         OR  [R,A,N],[R,A,N],[R,A]
+  E         XOR [R,A,N],[R,A,N],[R,A]
+  F         NOT [R,A]
+ 
+R = Register    A = Address    N = Number
+ 
+ADD [R,A,N],[R,A] means that the ADD instruction takes two
+operands.  The first can be a register, an address, or a number,
+and the second operand is either a register or an address.
+ 
+Opcodes are 4 bits in length.  An operand is made up of two
+fields: a mode and a value.  The mode is two bits and the value
+is fourteen bits for a total of sixteen bits.  The possible
+values for mode are:
+ 
+2-bit code     Type of operand
+  00             Register
+  01             Absolute
+  10             PC-Relative
+  11             Constant
+ 
+The value field for a register operand (mode = 00) specifies the
+number of the register.  For example, if the value field
+contained a seven then that would specify register number 7,
+written "R7".  The valid registers are R0 through R1023.
+ 
+The value field for an absolute operand (mode = 01) specifies the
+absolute address that the operand is to be stored at.  For
+example, if the value field contained the number 110, that would
+denote address location 110, which is written "$110".  Valid
+addresses are $0 through $16383.
+ 
+The value field for a PC-Relative operand (mode = 10) specifies
+the offset of the address relative to the program counter.  (On
+this computer, all PC-relative offsets are non-negative).  For
+example, if the value field contained the number 45, that would
+specify the address location (Program Counter) + 45, which is
+written "PC+45".  Valid offsets are from 0 to 16363.
+ 
+The value field for a constant operand (mode = 11) specifies a
+constant - a number between 0 and 16383.  For example, if the
+value field contained the number 1276, then that would specify
+the actual number 1276 and is written as "1276".
+ 
+Your task is to write a program which will read in a text file
+that contains the hexadecimal listing of an executable program
+and output the original source code, one assembler instruction
+per line.  Each line in the text file will contain exactly 30
+hexadecimal digits except for the last line which will contain
+from 1 to 30 hexadecimal digits.
+ 
+Sample Input File:
+4C00D00004C0020001000000001400
+005FFFB801E
+ 
+Sample Output File:
+MOV 13,R0
+MOV 2,R1
+ADD R0,R1
+MOV R0,$8191
+BR PC+30
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #6
+                       Majoring in Scales
+ 
+                     Source File: SCALES.ext
+                      Input File: SCALES.IN
+                     Output File: SCALES.OUT
+ 
+Background
+ 
+In western music, the twelve notes used in musical notation are
+arranged in the following order:
+ 
+C/Bb  C#/Db  D  D#/Eb  E/Fb  F/E#  F#/Gb  G  G#/Ab  A  A#/Bb
+B/Cb
+ 
+Note that a slash in the above list indicates alternate notations
+for the same note.
+ 
+Any two notes that are adjacent to each other in the above list
+are known as a semitone.  Any two notes that have one note
+separating them in the list above are known as a tone.  A major
+scale is made up of 8 notes.  It starts on one of the above notes
+and moves in the progression tone-tone-semitone-tone-tone-tone-
+semitone.  For example, the major scale starting on Db is made up
+of the following notes:
+ 
+Db Eb F Gb Ab Bb C Db
+ 
+The following rules also apply to major scales:
+ 
+1.   The scale will contain each letter from A to G once and only
+     once, with the exception of the first letter of the scale
+     (which will be repeated as the last note of the scale).
+2.   The scale may not contain a combination of both flat (b)
+     notes and sharp (#) notes.
+ 
+For the purposes of this problem, we are only concerned with the
+following major scales: C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, and
+B.
+ 
+An interval is a distance between two notes on a scale.  It can
+be either ascending or descending.  The names of the intervals
+are derived by the distance between the two notes.  Two notes
+adjacent to each other in a major scale are known as a major
+second.  Two notes in a major scale with three notes separating
+them are known as a major fifth.  An octave is a special interval
+which spans from one occurrence of a note to the next occurrence
+of it in the major scale.
+ 
+The Program
+ 
+Your program is to read an input file that contains major scale
+intervals to calculate, and is to output the results to an output
+file.  The data in the input file will consist of pairs of lines.
+The first line of each pair will contain the major scale to be
+used, and the second line of each pair will contain one or more
+intervals to be calculated.  Each interval to be calculated will
+be separated by a semicolon.  The interval to calculate will be
+specified with a starting note, a direction (UP or DOWN), and the
+interval itself (SECOND, THIRD, FOURTH, FIFTH, SIXTH, SEVENTH, or
+OCTAVE).  When specifying notes, the lowercase letter "b" will be
+used to represent a flat, and the symbol "#" will be used to
+represent a sharp.  No spaces will immediately precede or follow
+a semicolon, but one space will separate the note from the
+direction as well as the direction from the interval.  The output
+file should be formatted as shown below.  Each pair of lines in
+the input file will produce a line stating the key, followed by
+the results of the calculated intervals, one interval per line.
+If the starting note of the interval is not a part of the major
+scale being used, the program should output "invalid note for
+this key".
+ 
+The following example shows more clearly the format of the input
+and output files:
+ 
+Example Input File:
+C
+F UP SECOND;G DOWN THIRD
+E
+F# DOWN FOURTH;Bb DOWN SEVENTH;B UP OCTAVE
+ 
+Resulting Output File:
+Key of C
+F: UP SECOND > G
+G: DOWN THIRD > E
+ 
+Key of E
+F#: DOWN FOURTH > C#
+Bb: invalid note for this key
+B: UP OCTAVE > B
+ 
+           Harding University Local Programming Contest
+                            Fall 1992
+ 
+                           Problem #7
+                        Little Black Book
+ 
+                     Source File: MERGER.ext
+                   Main Input File: MERGER.DAT
+                    Output File: BLCKBOOK.OUT
+ 
+Problem Description
+ 
+The Public Relations Office is looking for an easier way to
+compile the information for their Black Book, a listing of all
+faculty members.  Currently, each department types up a list of
+their faculty and submits the list to PR.  PR then takes all the
+lists and makes a combined list that is sorted alphabetically by
+last name.  So far they have been doing this task by hand, which
+takes far more time than the average PR employee has to spare!
+ 
+What PR is looking for is a program that will take these faculty
+listings and combine them in a certain format that PR can use for
+inclusion in the Black Book.  All the lists are stored in text
+files.  Each department's file is sorted by last name.  The
+program should take these individually sorted files and combine
+them into a single sorted file in the format shown below.
+ 
+The input file MERGER.DAT will contain, on the first line, a
+number (between 2 and 12) that reports the number of files that
+your program should read, sort and write to the output file.
+Following the first line will be a series of file names and
+department titles.  Here is an example of the input file:
+ 
+5
+ENG.LST,English Department
+CS.LST,Computer Science
+ART.LST,Art
+BIBLE.LST,Bible
+NURSE.LST,Nursing
+ 
+There are the same number of filenames and department titles as
+the number on the first line reports.  Each file name given will
+contain the data that is to be sorted.  An example of one of
+these files would be:
+ 
+Dr.,Tom,Davis,Anystreet USA,555-2832,555-2423,823
+Mr.,John,Euler,East Pleasure,555-1432,555-2343,126
+Mrs.,Jessica,Lembeck,Center Street,555-2543,555-8584,928
+ 
+The information is delimited with commas just as the filename and
+department title were in the MERGER.DAT file.  Read each of these
+listing files until you reach their end-of-file.  The information
+reported is in this order: Title, First Name, Last Name, Street
+Address, Home Phone, Work Phone, and Campus Mailbox.
+ 
+The format of each record held in the BLCKBOOK.OUT file should be
+as follows:
+ 
+----------------------------------------
+<Title> <FirstName> <LastName>
+<HomeAddress>
+Department: <Department>
+Home Phone: <HomePhone>
+Work Phone: <WorkPhone>
+Campus Box: <CampusBox>
+ 
+The dashed line should be shown at the top of each record.  The
+characters "<" and ">" show where a field should be placed.
+Please pay attention to spacing.
+ 
+You may assume that all input files will be in the proper syntax,
+with no extra spaces.  PR therefore expects that the data they
+are requesting will be in the proper syntax.
+.

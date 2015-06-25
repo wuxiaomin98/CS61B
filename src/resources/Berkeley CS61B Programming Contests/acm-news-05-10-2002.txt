@@ -1,0 +1,114 @@
+By Diane Lewis, Boston Globe Staff, 5/6/2002   
+
+Here are some novel high-tech recruiting tools guaranteed to bring out
+the serious coding geeks: weekly online contests for college
+programmers; programming tournaments for students and professionals
+seeking a ranking; up to $100,000 in cash, and a chance to be on
+employers' wish lists.
+
+Last month, 16 student semifinalists squared off at a collegiate
+tournament held at the University Park Hotel at MIT in Cambridge. The
+event was the last leg of a programming competition that began online
+in February with 512 competitors.
+
+Sponsored by California-based Sun Microsystems Inc., the tournament
+was the brainchild of TopCoder, a Glastonbury, Conn., employment
+service and organizer of programming competitions. TopCoder, now 18
+months old, held its first weekly match and student tournament last
+year.
+
+The winner of April's collegiate tournament was Daniel Wright, a 21-
+year-old junior at Stanford University who will graduate next year
+with a bachelor's and a master's degree in computer science. He walked
+away with a $100,000 grand prize, and a TopCoder ranking as number one
+college programmer in the country.
+
+"I've always enjoyed programming contests, but this one gives you a
+quantitative measure of programming or coding ability," Wright said.
+"It's a very attractive idea to be able to put something on my resume
+that says, `I'm rated thus and so, or I won this contest.' It means
+more than just saying that you've taken the right classes. Employers
+can't really judge how someone programs just from an interview."
+
+A random survey of Boston area recruiters suggests that the use of
+contest rankings to locate and screen programming talent just might be
+new.
+
+"Companies have, for some time, asked applicants to solve problems,"
+said Sally Silver, founder and chief executive of Sally Silver Cos. in
+Waltham. "But this is the first I've heard of that."
+
+Chris Moody, chief operating officer and chief information officer at
+Aquent Inc., which tests programmers before placing them, said using
+contest ratings to locate and select talent focuses primarily on
+technical ability. That's OK if the employer wants the very best
+coder, he said. It might not be enough if the company is searching for
+a cultural fit.
+
+"Testing ability before hiring is not new, but doing it in a
+competition as a way of hiring, I have not specifically heard of,"
+said Moody. "The interesting thing is that it serves an extremely
+narrow niche, the niche where you are absolutely focused on finding
+the most analytical or brightest person.  Rarely are companies looking
+for that. Many also want cultural fit and experience fit. ... A person
+could be brilliant and not be right for the job."
+
+TopCoder competitions work like this: Student programmers sign up for
+free membership on the TopCoder Web site. Once enrolled, they can
+compete in weekly matches to build up a ranking that might lead to an
+international tournament, said George Herchenroether, vice president
+of marketing at TopCoder.
+
+Students who join become part of the company's database of 13,000
+professional and collegiate programmers. Of those, 3,000 have competed
+in contests thus far. An automated ranking system gathers details
+about the programming codes they've created and the algorithmic
+problems they've solved, and ranks the results. Rankings can go up and
+down, depending on the individual's performance on a given match.
+
+"Once you get a large base of competitors, you can actually look at
+how they solve problems," said Robert Hughes, president and cofounder
+of TopCoder. "It gives companies a much quicker path to identifying
+the best people to hire."
+
+Reggie Hutcherson, manager of technology evangelism and adoption at
+Sun Microsystems Inc., a corporate backer of TopCoder, said
+competitions can also serve as a quasi-training ground for young
+programmers seeking to hone and test their skills against
+professionals in the field.
+
+Mark Lewis, an assistant professor of computer science at Trinity
+University in Texas, said many of his students began "dabbling in the
+games," and he has encouraged them.
+
+"Even simple problems can teach students," he said. "By the time they
+get up to the higher levels [of competition], they are doing very
+complex algorithms. It gets them thinking about material that might be
+useful outside the normal class."
+
+Is this a new trend? "I would say, yes, in the sense of a commercial
+company doing it," Lewis said. "For a long time there were programming
+competitions held by the Association of Computing Machinery, the
+academic computing association. Companies have sponsored these, at
+least partially, in the hope of finding people who do well and then
+hiring them. But the ACM competitions are limited to college students,
+and each university only gets two teams of three people in a
+competition."
+
+Typically, employers are charged a percentage of the total
+compensation for new hires selected from TopCoder's database. They are
+not charged a location fee. Companies can also sponsor a series or
+package of five weekly contests or matches for $25,000 to $30,000. The
+charge for tournament sponsorships depend on the size of the event and
+the location.
+
+For students, the competitions offer the chance to pit their skills
+against the best in the firm's database and offers the possibility of
+a cash prize and a good ranking.
+
+That's what drew Jonathan Falz, a graduate student in computer science
+at MIT, who competed in an earlier tournament and won $10,000. Falz,
+who graduates this year, says competing hasn't led to a job offer yet,
+but he's not worried. "If you can prove that you are the best coder in
+the world, it will make an employer at least listen to you," Falz
+said.

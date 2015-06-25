@@ -1,0 +1,65 @@
+problem #1
+~~~~~~~~~~
+using the mid$ statement, construct a program that will give the following
+output for any given string (ex. a$="probability")
+
+  probability
+  robability
+  obability
+  bability
+  ability
+  bility
+  ility
+  lity
+  ity
+  ty
+  y
+
+(* one thing to look for in judging the program is the use of the len(a$), this
+   insures that the contest has a general knowledge of good structure in that
+   it would allow the program to work on any size of A$ or rather any word *)
+
+PROBLEM #2
+~~~~~~~~~~
+write an interactive program that will take in the length and width of a lot
+in feet and calculate the number of acreas in the lot.  keeping in mind that
+there are 43,560 ft per acrea.  output should be given to the screen and the
+printer.
+
+(* we found the most difficult part of this program is for the students to have
+   passed algebra I or II successfully enough to write an equation to do the
+   conversions necessary.this proved to be difficult for some of the
+   contestants.  i was rather disappointed in this, but..... *)
+
+problem #3
+""""""""""
+with the following input data, calculate a discount of 15% off of each item
+and and then display the output with the name of the items followed bythe
+new price.
+
+  input data -
+               items              price
+              """"""""""""       """"""""
+               bread               1.05
+               coffee              3.23
+               dog food           12.99
+               cereal              4.23    (* etc..etc.. *)
+
+  output data -
+               Items           discounted price
+              """"""""""""    """"""""""""""""""
+               bread             ##.##
+               coffee
+               dog food
+               cereal
+
+(* this is a rather good program as it tests the students knowledge of
+   how to use DATA statements and his ability at using the 'print using'
+   statements.  we had some really good solutions and some really bad
+   solutions.  Also the ability to calculate the discounted price in one
+   line with out having to create 2 million variables to get it and then
+   print out the amount of the discount rather than the 'new' price. *)
+
+
+
+.
