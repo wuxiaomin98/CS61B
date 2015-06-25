@@ -2,8 +2,12 @@ package edu.berkeley.cs.cs61b.hw.hw1;
 
 /* OpenCommercial.java */
 
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**  A class that provides a main function to read five lines of a commercial
  *   Web page and print them in reverse order, given the name of a company.
@@ -30,6 +34,26 @@ class OpenCommercial {
     inputLine = keyboard.readLine();
 
     /* Replace this comment with your solution.  */
+    String url = "http://www." + inputLine + ".com";
+    String [] lines = getLinesOnline(url, 5);
+    
+    for(String str : lines)
+    	System.out.println(str);
 
+  }
+  
+  private static String [] getLinesOnline(String stringUrl, int numberOfLines) throws IOException{
+	  String [] lines = new String[numberOfLines];
+	  
+	  URL url = new URL(stringUrl);
+	  
+	  BufferedReader onlineCodeReader = new 
+		BufferedReader(new InputStreamReader(url.openStream()));
+	  
+	  for(int count = numberOfLines-1; count >= 0; count--)
+		  lines[count] = onlineCodeReader.readLine();
+	  
+	  return lines;
+	  
   }
 }
