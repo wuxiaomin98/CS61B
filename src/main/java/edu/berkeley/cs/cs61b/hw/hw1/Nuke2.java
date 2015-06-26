@@ -12,8 +12,12 @@ public class Nuke2 {
 		
 		String word = bufferedReader.readLine();
 		
-		System.out.println(word.substring(0, 1) + word.substring(2));
+		if(word != null && word.length() > 2)
+			System.out.println(word.substring(0, 1) + word.substring(2));
+		else
+			throw new  IllegalArgumentException("Please enter words with more characters");
 		
 		System.exit(0);
 	}
+
 }
