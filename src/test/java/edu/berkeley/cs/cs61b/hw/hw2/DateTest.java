@@ -84,8 +84,8 @@ public class DateTest extends TestCase {
 	
 	@Test
 	public void testToString() {
-		assertEquals("01/26/2007", new Date(01, 26, 2007).toString());
-		assertEquals("01/26/2012", new Date("1/26/2012").toString());
+		assertEquals("1/26/2007", new Date(01, 26, 2007).toString());
+		assertEquals("1/26/2012", new Date("1/26/2012").toString());
 	}
 
 	public void testIsBefore() {

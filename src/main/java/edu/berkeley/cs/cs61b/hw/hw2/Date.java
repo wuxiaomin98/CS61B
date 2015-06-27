@@ -138,7 +138,9 @@ class Date {
    *  @return a String representation of this date.
    */
   public String toString() {
-	 StringBuilder stringDate = new StringBuilder();
+	  
+	  /* Keep it simple to match main
+	  StringBuilder stringDate = new StringBuilder();
 	 
 	 stringDate.append((this.month < 10) ?  "0" + this.month : this.month);
 	 stringDate.append(DELIMITER);
@@ -146,23 +148,59 @@ class Date {
 	 stringDate.append(DELIMITER);
 	 stringDate.append(this.year);
     
-	 return stringDate.toString();                     
+	 return stringDate.toString();*/                     
+	 
+	 return this.month + "/" + this.day + "/" + this.year;
   }
 
   /** Determines whether this Date is before the Date d.
    *  @return true if and only if this Date is before d. 
    */
   public boolean isBefore(Date d) {
-    return true;                        // replace this line with your solution
+	  if(d == null)
+		  throw new IllegalArgumentException("Invalid Date");
+	  
+	  if(isEqual(d))
+		  return false;
+	  
+	  // check year
+	  if(this.year < d.getYear())
+		  return true;
+	  
+	  if(this.year > d.year)
+		  return false;
+	  
+	  // If reached here, means this.year == d.year
+	  if(this.month < d.getMonth())
+		  return true;
+	  
+	  if(this.month > d.getMonth())
+		  return false;
+	  
+	// If reached here, means this.month == d.month
+	  if(this.day < d.getDay())
+		  return true;
+	  else
+		  return false;
   }
 
   /** Determines whether this Date is after the Date d.
    *  @return true if and only if this Date is after d. 
    */
   public boolean isAfter(Date d) {
-    return ! isBefore(d);
+	  if(isEqual(d))
+		  return false;
+	  
+	  return ! isBefore(d);
   }
 
+  public boolean isEqual(Date d){
+	  if(d == null)
+		  return false;
+	  
+	  return ((this.month == d.getMonth()) && (this.day == d.getDay()) && (this.year == d.getYear()));
+  }
+  
   /** Returns the number of this Date in the year.
    *  @return a number n in the range 1...366, inclusive, such that this Date
    *  is the nth day of its year.  (366 is used only for December 31 in a leap
