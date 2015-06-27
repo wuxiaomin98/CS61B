@@ -2,12 +2,16 @@ package edu.berkeley.cs.cs61b.hw.hw2;
 
 /* Date.java */
 
-import java.io.*;
 
 class Date {
 
   /* Put your private data fields here. */
+	private int day;
+	private int month;
+	private int year;
 
+	private static final String DELIMITER = "/";
+	
   /** Constructs a date with the given month, day and year.   If the date is
    *  not valid, the entire program will halt with an error message.
    *  @param month is a month, numbered in the range 1...12.
@@ -15,7 +19,12 @@ class Date {
    *  @param year is the year in question, with no digits omitted.
    */
   public Date(int month, int day, int year) {
-
+	  if(! isValidDate(month, day, year))
+		  throw new IllegalArgumentException("Invalid Date");
+	  
+	  this.year = year;
+	  this.month = month;
+	  this.day = day;
   }
 
   /** Constructs a Date object corresponding to the given string.
@@ -25,14 +34,21 @@ class Date {
    *  a valid date, the program halts with an error message.
    */
   public Date(String s) {
-
+	  if(s == null || ! isValidDate(s))
+		  throw new IllegalArgumentException("Invalid date");
+  
+	  int [] values = getMonthDayYear(s);
+	  
+	  this.month = values[0];
+	  this.day = values[1];
+	  this.year = values[2];
   }
 
   /** Checks whether the given year is a leap year.
    *  @return true if and only if the input year is a leap year.
    */
   public static boolean isLeapYear(int year) {
-    return true;                        // replace this line with your solution
+    return ((year % 4 == 0  && year % 100 != 0) || year % 400 == 0);
   }
 
   /** Returns the number of days in a given month.
@@ -41,7 +57,16 @@ class Date {
    *  @return the number of days in the given month.
    */
   public static int daysInMonth(int month, int year) {
-    return 0;                           // replace this line with your solution
+	  if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+		  return 31;
+	  else if(month == 4 || month == 6 || month == 9 || month == 11)
+		  return 30;
+	  else if(month == 2 && isLeapYear(year))
+		  return 29;
+	  else if(month == 2 && !isLeapYear(year))
+		  return 28;
+		  
+	  return 0;
   }
 
   /** Checks whether the given date is valid.
@@ -50,7 +75,61 @@ class Date {
    *  Years prior to A.D. 1 are NOT valid.
    */
   public static boolean isValidDate(int month, int day, int year) {
-    return true;                        // replace this line with your solution
+	  if(year < 1)
+		  return false;
+	  
+	  if(month < 1 || month > 12)
+		  return false;
+	  
+	  if (day < 1 || day > 31)
+		  return false;
+	  
+	  if((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+		  return false;
+	  
+	  if(isLeapYear(year) && month == 2 && day > 29)
+		  return false;
+	  
+	  if(!isLeapYear(year) && month == 2 && day > 28)
+		  return false;
+	  
+	  return true;
+  }
+  
+  public static boolean isValidDate(String date) {
+	  if(date == null)
+		  return false;
+	  
+	  int [] values = getMonthDayYear(date);
+	  
+	  if(values.length != 3)
+		  return false;
+	  
+	  return isValidDate(values[0], values[1], values[2]) ;                        
+  }
+  
+  private static int [] getMonthDayYear(String str){
+	  String [] strValues = str.split("/");
+	  
+	  if(strValues.length != 3)
+		  throw new IllegalArgumentException("Invalid Date");
+	  
+	  int [] values = {convertToInt(strValues[0]), convertToInt(strValues[1]), convertToInt(strValues[2])};
+  
+	  return values;
+  
+  }
+  
+  private static int convertToInt(String str){
+	  int value;
+	  
+	  try{
+		  value = Integer.parseInt(str);  
+	  }catch(NumberFormatException ex){
+		  value = -1;
+	  }
+	  	
+	  return value;
   }
 
   /** Returns a string representation of this date in the form month/day/year.
@@ -59,7 +138,15 @@ class Date {
    *  @return a String representation of this date.
    */
   public String toString() {
-    return "stuff";                     // replace this line with your solution
+	 StringBuilder stringDate = new StringBuilder();
+	 
+	 stringDate.append((this.month < 10) ?  "0" + this.month : this.month);
+	 stringDate.append(DELIMITER);
+	 stringDate.append((this.day < 10) ?  "0" + this.day : this.day);
+	 stringDate.append(DELIMITER);
+	 stringDate.append(this.year);
+    
+	 return stringDate.toString();                     
   }
 
   /** Determines whether this Date is before the Date d.
@@ -152,4 +239,60 @@ class Date {
     System.out.println(d5 + " - " + d4  + " should be 48762: " + 
                        d5.difference(d4));
   }
+
+	public int getDay() {
+		return day;
+	}
+	
+	public void setDay(int day) {
+		this.day = day;
+	}
+	
+	public int getMonth() {
+		return month;
+	}
+	
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + day;
+		result = prime * result + month;
+		result = prime * result + year;
+		return result;
+	}
+
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Date other = (Date) obj;
+		if (day != other.day)
+			return false;
+		if (month != other.month)
+			return false;
+		if (year != other.year)
+			return false;
+		return true;
+	}
+  
+
 }
