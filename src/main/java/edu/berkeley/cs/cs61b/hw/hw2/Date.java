@@ -229,8 +229,30 @@ class Date {
 	  if(d == null)
 		  throw new IllegalArgumentException("Invalid Date");
 	  
+	  if(this.isEqual(d))
+		  return 0;
 	  
-	  return 0;
+	  int result = 0;
+	  boolean isBeforeOtherDate = this.isBefore(d);
+	  
+	  if(this.getYear() == d.getYear()){
+		  result = dayInYear() - d.dayInYear();
+		  return isBeforeOtherDate ? -result : result;
+	  }
+	  
+	  // Mark one date as larger and other as smaller, compute 
+	  // (larger-smaller) and invert sign based on this.isBefore
+	  Date larger = this.isBefore(d) ? d : this;
+	  Date smaller = this.isBefore(d) ? this : d;
+	  
+	  // get differences in days by differences in years
+	  for(int yearCount = smaller.getYear(); yearCount < larger.getYear(); yearCount ++){
+		  result = result + getDaysByYear(yearCount);
+	  }
+	  
+	  result = result + (larger.dayInYear() - smaller.dayInYear());
+	  
+	  return isBeforeOtherDate ? -result : result;
   }
 
   public static void main(String[] argv) {
