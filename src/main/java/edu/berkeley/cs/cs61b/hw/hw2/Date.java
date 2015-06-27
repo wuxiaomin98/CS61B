@@ -68,6 +68,10 @@ class Date {
 		  
 	  return 0;
   }
+  
+  public static int getDaysByYear(int year){
+	  return (isLeapYear(year) ? 366 : 365);
+  }
 
   /** Checks whether the given date is valid.
    *  @return true if and only if month/day/year constitute a valid date.
@@ -207,7 +211,13 @@ class Date {
    *  year.)
    */
   public int dayInYear() {
-    return 0;                           // replace this line with your solution
+	  int dayInYear = 0;
+	  for(int count = 1; count< this.month; count ++){
+		  dayInYear = daysInMonth(count, this.year) + dayInYear;
+	  }
+	  
+	  dayInYear = dayInYear + this.day;
+	  return dayInYear;
   }
 
   /** Determines the difference in days between d and this Date.  For example,
@@ -216,7 +226,11 @@ class Date {
    *  @return the difference in days between d and this date.
    */
   public int difference(Date d) {
-    return 0;                           // replace this line with your solution
+	  if(d == null)
+		  throw new IllegalArgumentException("Invalid Date");
+	  
+	  
+	  return 0;
   }
 
   public static void main(String[] argv) {
@@ -303,34 +317,4 @@ class Date {
 	}
 
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + day;
-		result = prime * result + month;
-		result = prime * result + year;
-		return result;
-	}
-
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Date other = (Date) obj;
-		if (day != other.day)
-			return false;
-		if (month != other.month)
-			return false;
-		if (year != other.year)
-			return false;
-		return true;
-	}
-  
-
 }

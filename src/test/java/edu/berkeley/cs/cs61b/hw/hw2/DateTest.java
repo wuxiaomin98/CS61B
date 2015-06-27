@@ -97,7 +97,11 @@ public class DateTest extends TestCase {
 	}
 
 	public void testDayInYear() {
-		//fail("Not yet implemented");
+		assertEquals(26, new Date(1, 26, 2012).dayInYear());
+		assertEquals(91, new Date(3, 31, 2012).dayInYear());
+		assertEquals(90, new Date(3, 31, 2017).dayInYear());
+		assertEquals(366, new Date(12, 31, 2012).dayInYear());
+		assertEquals(365, new Date(12, 31, 2017).dayInYear());
 	}
 
 	public void testDifference() {
