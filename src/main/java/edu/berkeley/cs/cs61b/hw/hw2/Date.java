@@ -160,7 +160,7 @@ class Date {
    *  @return true if and only if this Date is after d. 
    */
   public boolean isAfter(Date d) {
-    return true;                        // replace this line with your solution
+    return ! isBefore(d);
   }
 
   /** Returns the number of this Date in the year.
